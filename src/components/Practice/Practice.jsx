@@ -23,7 +23,7 @@ const Practice = () => {
             setSaying(res.english);
             setAnswer(res.korean);
         })
-    }, []);
+    });
 
     async function refresh() {
         getRandomSaying(level).then(res => {
