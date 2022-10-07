@@ -20,10 +20,10 @@ const Home = () => {
           <p>안녕하세요, 한국어 훈련자 예요</p>
         </div>
 
-        <Button variant="contained" size="large" onClick={() => navigate('/practice')}>Practice</Button>
-        <Button variant="contained" size="large" style={{ marginTop: "1%" }}>Create</Button>
+        <Button variant="contained" size="large" onClick={() => navigate('/select')}>Practice</Button>
+        <Button variant="contained" size="large" style={{ marginTop: "1%" }} onClick={() => navigate('/create')}>Create</Button>
       </header>
   )
 }
 
-export default Home
+export default Home;

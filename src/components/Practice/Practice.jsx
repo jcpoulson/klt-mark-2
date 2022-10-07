@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import getRandomSaying from "../../backend/db";
 import getRandomPhoto from '../../backend/getRandomPhoto';
 
@@ -9,6 +10,8 @@ import bgImage1 from "../../assets/img/korea-bg-1.jpg";
 import { Button } from "@mui/material";
 
 const Practice = () => {
+    let { level } = useParams();
+    
     const [saying, setSaying] = useState("Term - Saying - Expression");
     const [answer, setAnswer] = useState("Answer - In - Korean");
     const [photo, setPhoto] = useState(bgImage1);
@@ -16,14 +19,14 @@ const Practice = () => {
     const [showAnswer, setShowAnswer] = useState(false);
 
     useEffect(() => {
-        getRandomSaying('1').then(res => {
+        getRandomSaying(level).then(res => {
             setSaying(res.english);
             setAnswer(res.korean);
         })
     }, []);
 
     async function refresh() {
-        getRandomSaying('1').then(res => {
+        getRandomSaying(level).then(res => {
             setSaying(res.english);
             setAnswer(res.korean);
         })
