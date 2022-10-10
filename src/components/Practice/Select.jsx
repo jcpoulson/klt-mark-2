@@ -22,7 +22,7 @@ const Select = () => {
             </div>
 
             <div className="select-card" onClick={() => navigate('/practice/2')}>
-                <p className="practice-text">Level 2 - Newer Data (TTMIK 2 - 4, Say Level 2 and other stuff)</p>
+                <p className="practice-text">Level 2 - TTMIK Level 5</p>
             </div>
                 
         </div>
