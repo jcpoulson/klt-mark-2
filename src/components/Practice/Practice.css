@@ -22,3 +22,7 @@
     transform: scale(1.1);
     cursor: pointer;
 }
+
+.edit-and-delete {
+    margin-top: 10px;
+}
