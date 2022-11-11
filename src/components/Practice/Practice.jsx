@@ -48,7 +48,7 @@ const Practice = () => {
                 :
                     <PracticeComponent saying={saying} answer={answer} showAnswer={showAnswer} setShowAnswer={setShowAnswer} setPhoto={setPhoto} refresh={refresh} setEdit={setEdit} handleDeleteOpen={handleDeleteOpen} />
             }
-            <DeleteModal deleteOpen={deleteOpen} handleDeleteClose={handleDeleteClose} />
+            <DeleteModal deleteOpen={deleteOpen} handleDeleteClose={handleDeleteClose} saying={saying} answer={answer} levelProp={level} />
         </div>
     )
 }

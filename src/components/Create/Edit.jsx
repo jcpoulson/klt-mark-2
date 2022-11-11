@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import postSaying from "../../backend/postSaying";
+import editSaying from '../../backend/editSaying';
 
 import "../../App.css";
 
@@ -9,9 +9,9 @@ import { Button, TextField } from "@mui/material";
 const Edit = ({ saying, answer, levelProp }) => {
     const navigate = useNavigate();
 
-    const [english, setEnglish] = useState('');
-    const [korean, setKorean] = useState('');
-    const [level, setLevel] = useState('');
+    const [english, setEnglish] = useState(saying);
+    const [korean, setKorean] = useState(answer);
+    const [level, setLevel] = useState(levelProp);
 
     return (
         <>
@@ -29,13 +29,13 @@ const Edit = ({ saying, answer, levelProp }) => {
             </div>
 
             <Button variant="contained" size="large" style={{ marginTop: "1%" }} onClick={async () => {
-                await postSaying({
+                await editSaying({english: saying, korean: answer, level: parseInt(levelProp)}, {
                     english: english,
                     korean: korean,
-                    level: level
-                }, level.toString());
+                    level: parseInt(level)
+                })
                 navigate('/home');
-            }}>Submit</Button>
+            }}>Submit Update</Button>
         </>
     )
 }
