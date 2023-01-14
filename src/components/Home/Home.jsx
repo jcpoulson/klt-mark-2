@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-// import logo from '../../logo.svg';
 
 import "../../App.css";
 import bgImage1 from "../../assets/img/korea-bg-1.jpg";
+import getRandomPhoto from '../../backend/getRandomPhoto';
 
 import { Button } from "@mui/material";
 
 const Home = () => {
   let navigate = useNavigate();
 
+  const [photo, setPhoto] = useState(bgImage1);
+
+    useEffect(() => {
+        getRandomPhoto().then(res => setPhoto(res));
+    }, [])
+
   return (
-      <header className="App-header" style={{ backgroundImage: `url(${bgImage1})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center center" }}>
+      <header className="App-header" style={{ backgroundImage: `url(${photo})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center center" }}>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <div className="home-text-card">
           <p>Hello There, Welcome to KLT - Mark II</p>
